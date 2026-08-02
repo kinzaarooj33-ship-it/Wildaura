@@ -1,0 +1,354 @@
+/* Center Wrapper */
+.profile-wrapper {
+  min-height: 80vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  margin-top: 50px;
+}
+
+.profile-wrapper::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("kk.png") no-repeat center center / cover;
+  z-index: -1;
+}
+
+/* Profile Card */
+.profile-box {
+  background: #e6e4d3;
+  color: #0e0404;
+  width: 600px;
+  max-width: 95%;
+  padding: 30px;
+  border-radius: 20px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  margin-top: 20px;
+
+}
+
+/* Top Section */
+.profile-top {
+  background: #e2d8d8;
+  padding: 18px 15px;
+  text-align: center;
+  border-radius: 16px;
+  margin-bottom: 10px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  margin-top: 30px;
+}
+
+.profile-header {
+  position: relative;
+}
+
+.profile-header img {
+  width: 130px;
+  height: 130px;
+  object-fit: cover;
+  border-radius: 20%;
+  border: 4px solid #eddd3c;
+}
+
+.profile-header h2 {
+  margin: 10px 0 4px;
+  color: #000000;
+}
+
+.profile-header p {
+  margin: 0;
+  color: #000000;
+  font-weight: bold;
+}
+
+/* Edit Icon */
+.edit-badge {
+  position: absolute;
+  top: 115px;
+  right: 35%;
+  background: #fafaf7;
+  color: #000;
+  padding: 5px 7px;
+  border-radius: 50%;
+  font-size: 17px;
+  cursor: pointer;
+}
+
+/* Info Grid */
+.fields-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.field {
+  background: #ffffff;
+  padding: 8px 12px;
+  border-radius: 12px;
+}
+
+.field label {
+  font-size: 13px;
+  color: #eddd3c;
+}
+
+.field p {
+  margin: 5px 0 0;
+  font-weight: bold;
+}
+
+/* ✅ EDIT MODE — INPUT & SELECT SIZE FIX */
+.field input,
+.field select {
+  width: 100%;
+  box-sizing: border-box;
+  padding: 8px 10px;
+  margin-top: 4px;
+  font-size: 14px;
+  font-weight: 600;
+  border: 1.5px solid #ccc;
+  border-radius: 8px;
+  background: #fafafa;
+  color: #1a1a1a;
+  outline: none;
+  transition: border-color 0.2s;
+}
+
+.field input:focus,
+.field select:focus {
+  border-color: #c2b73e;
+  box-shadow: 0 0 0 2px rgba(194, 183, 62, 0.2);
+}
+
+/* Default Avatar */
+.default-avatar {
+  width: 130px;
+  height: 130px;
+  border-radius: 20%;
+  border: 4px solid #eddd3c;
+  background: #4a5c1a;
+  color: #eddd3c;
+  font-size: 55px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+}
+
+/* Button */
+.btn-profile {
+  margin: 20px auto 0;
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background: #c2b73e;
+  border: none;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: background 0.3s;
+}
+
+.btn-cancel {
+  margin: 0 auto;
+  display: block;
+  width: 50%;
+  padding: 10px;
+  background: #fff;
+  border: 2px solid #eddd3c;
+  border-radius: 30px;
+  font-size: 16px;
+  font-weight: bold;
+  cursor: pointer;
+  color: #000;
+  transition: background 0.3s;
+}
+
+.btn-cancel:hover {
+  background: #f5f5f5;
+}
+
+.btn-profile:hover {
+  background: #d4c934;
+}
+
+.btn-profile:active {
+  background: #b8ae2a;
+}
+
+/* Footer */
+.profile-footer {
+  margin-top: 15px;
+  font-size: 12px;
+  text-align: center;
+  color: #0f0e0e;
+}
+
+@media (max-width: 600px) {
+  .profile-box {
+    width: 85%;
+    padding: 14px;
+    max-height: 90vh;
+    overflow-y: auto;
+  }
+
+  .profile-top {
+    padding: 14px 10px;
+    margin-bottom: 10px;
+  }
+
+  .profile-header img {
+    width: 95px;
+    height: 95px;
+  }
+
+  .edit-badge {
+    top: 70px;
+    right: 45%;
+    font-size: 14px;
+    padding: 4px 6px;
+  }
+
+  .profile-header h2 {
+    font-size: 18px;
+  }
+
+  .profile-header p {
+    font-size: 13px;
+  }
+
+  .fields-grid {
+    grid-template-columns: 1fr;
+    gap: 8px;
+    margin-top: 10px;
+  }
+
+  .field {
+    padding: 7px 10px;
+  }
+
+  .field label {
+    font-size: 12px;
+  }
+
+  .field p {
+    font-size: 13px;
+  }
+
+  .btn-profile {
+    width: 100%;
+    margin-top: 10px;
+    padding: 9px;
+    font-size: 14px;
+  }
+
+  .profile-footer {
+    font-size: 11px;
+    margin-top: 10px;
+  }
+}
+
+.btn-complete-profile {
+  background-color: #e65c00;
+  color: #fff;
+  border: none;
+  padding: 10px 24px;
+  border-radius: 8px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-complete-profile:hover {
+  background-color: #cc5200;
+}
+
+/* BACK BUTTON */
+.back-btn {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  background: none;
+  border: 1.5px solid #b0aa6a;
+  border-radius: 8px;
+  color: #5a5420;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  padding: 7px 16px;
+  width: auto;
+  margin: 0 0 16px 0;
+  transition: background 0.2s, color 0.2s, border-color 0.2s;
+  margin-top: 20px;
+  border: none;
+  
+}
+
+.back-btn:hover {
+  background: #d4c934;
+  border-color: #c2b73e;
+  color: #000;
+}
+/* ── TOAST — yeh userprofile.css mein paste karo ── */
+
+.toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 320px;
+  max-width: 520px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { top: -60px; opacity: 0; }
+  to   { top: 24px;  opacity: 1; }
+}
+
+.toast.error {
+  background: #fff0f0;
+  border: 1.5px solid #f5c2c2;
+  color: #c0392b;
+}
+
+.toast.success {
+  background: #f0fdf4;
+  border: 1.5px solid #a5d6a7;
+  color: #1e7e34;
+}
+
+.toast-msg {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.toast-close {
+  font-size: 16px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}

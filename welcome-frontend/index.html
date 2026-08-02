@@ -1,0 +1,42 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <script src="https://accounts.google.com/gsi/client" async defer></script>
+    <title>Wild Aura</title>
+    <style>
+      html, body, #root {
+        margin: 0;
+        padding: 0;
+      }
+      html {
+        overflow-y: auto;
+        overflow-x: hidden;
+        scrollbar-width: none; /* Firefox */
+      }
+      html::-webkit-scrollbar {
+        display: none; /* Chrome/Safari — default scrollbar hide */
+      }
+      body {
+        overflow-y: visible;
+        overflow-x: hidden;
+        background: transparent;
+      }
+      #root {
+        overflow-y: visible;
+        min-height: 100vh;
+        width: 100%;
+        display: block;
+      }
+      /* ✅ Custom scrollbar sirf .home-page pe */
+      .home-page::-webkit-scrollbar { display: none; }
+    </style>
+  </head>
+  <body>
+    <div id="root"></div>
+    <script type="module" src="/src/main.jsx"></script>
+  </body>
+</html>

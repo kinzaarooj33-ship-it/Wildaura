@@ -1,0 +1,201 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800&display=swap');
+
+.hem-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.8);
+  backdrop-filter: blur(6px);
+  z-index: 99999;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 16px;
+  animation: hem-fade 0.2s ease;
+}
+@keyframes hem-fade { from { opacity: 0; } to { opacity: 1; } }
+
+.hem-box {
+  background: #1a1a1a;
+  border: 1px solid rgba(220,50,50,0.4);
+  border-radius: 20px;
+  padding: 40px 36px;
+  max-width: 420px;
+  width: 100%;
+  text-align: center;
+  box-shadow: 0 20px 60px rgba(220,50,50,0.2);
+  animation: hem-pop 0.3s cubic-bezier(0.34,1.56,0.64,1);
+}
+@keyframes hem-pop {
+  from { transform: scale(0.85); opacity: 0; }
+  to   { transform: scale(1); opacity: 1; }
+}
+
+.hem-box.success {
+  border-color: rgba(40,180,40,0.4);
+  box-shadow: 0 20px 60px rgba(40,180,40,0.15);
+}
+
+.hem-icon { font-size: 52px; margin-bottom: 16px; }
+.hem-success-icon { font-size: 52px; margin-bottom: 16px; }
+
+.hem-box h2 {
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.5rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 12px;
+}
+
+.hem-box p {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.9rem;
+  color: #aaa;
+  line-height: 1.6;
+  margin-bottom: 10px;
+}
+
+.hem-box p strong { color: #fff; }
+
+.hem-warn {
+  color: #e05050 !important;
+  font-size: 0.82rem !important;
+  margin-bottom: 24px !important;
+}
+
+.hem-btns {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  margin-top: 20px;
+}
+
+.hem-send-btn {
+  background: linear-gradient(135deg, #b91c1c, #ef4444);
+  color: #fff;
+  border: none;
+  padding: 14px 24px;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 800;
+  font-size: 1rem;
+  cursor: pointer;
+  transition: all 0.2s;
+  box-shadow: 0 4px 20px rgba(220,50,50,0.4);
+}
+.hem-send-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 28px rgba(220,50,50,0.5);
+}
+
+.hem-cancel-btn {
+  background: rgba(255,255,255,0.07);
+  color: #888;
+  border: 1px solid rgba(255,255,255,0.1);
+  padding: 12px 24px;
+  border-radius: 12px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.2s;
+  margin-top: 4px;
+}
+.hem-cancel-btn:hover { background: rgba(255,255,255,0.1); color: #ccc; }
+
+/* Spinner */
+.hem-spinner {
+  width: 56px; height: 56px;
+  border: 4px solid rgba(255,255,255,0.1);
+  border-top-color: #fff;
+  border-radius: 50%;
+  animation: hem-spin 0.9s linear infinite;
+  margin: 0 auto 20px;
+}
+.hem-spinner.red {
+  border-top-color: #ef4444;
+}
+@keyframes hem-spin { to { transform: rotate(360deg); } }
+
+/* Location chip */
+.hem-loc-chip {
+  display: inline-flex;
+  align-items: center;
+  gap: 7px;
+  background: rgba(255,255,255,0.07);
+  border: 1px solid rgba(255,255,255,0.12);
+  border-radius: 20px;
+  padding: 8px 16px;
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #ccc;
+  margin: 12px 0;
+}
+.hem-loc-chip i { color: #ef4444; }
+
+/* Stats */
+.hem-stats {
+  display: flex;
+  gap: 16px;
+  justify-content: center;
+  margin: 20px 0;
+}
+.hem-stat {
+  background: rgba(255,255,255,0.05);
+  border: 1px solid rgba(255,255,255,0.1);
+  border-radius: 12px;
+  padding: 14px 20px;
+  flex: 1;
+}
+.hem-stat-val {
+  display: block;
+  font-family: 'Nunito', sans-serif;
+  font-size: 1.6rem;
+  font-weight: 800;
+  color: #fff;
+  margin-bottom: 4px;
+}
+.hem-stat-label {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.72rem;
+  color: #777;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+/* Info list */
+.hem-info-list {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+  margin: 16px 0;
+  text-align: left;
+}
+.hem-info-item {
+  font-family: 'Nunito', sans-serif;
+  font-size: 0.82rem;
+  color: #999;
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+  background: rgba(255,255,255,0.03);
+  border-radius: 8px;
+  padding: 8px 12px;
+}
+.hem-info-item i { color: #60c060; font-size: 0.78rem; margin-top: 2px; flex-shrink: 0; }
+
+/* Map button */
+.hem-map-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  background: linear-gradient(135deg, #1a4a8a, #2a6ad4);
+  color: #fff;
+  text-decoration: none;
+  padding: 11px 22px;
+  border-radius: 10px;
+  font-family: 'Nunito', sans-serif;
+  font-weight: 700;
+  font-size: 0.88rem;
+  margin: 12px 0 6px;
+  transition: all 0.2s;
+}
+.hem-map-btn:hover { transform: translateY(-2px); }
