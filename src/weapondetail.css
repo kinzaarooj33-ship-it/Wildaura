@@ -1,0 +1,304 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:wght@700;900&family=Source+Sans+3:wght@300;400;600&display=swap');
+
+/* ── LOCAL TOKENS (weapon page specific) ── */
+:root {
+  --bg-dark:       #f5f0e8;
+  --bg-card:       #f5f0e8;
+  --bg-card-hover: #e8e0d0;
+  --border:        #8a7a5a;
+  --accent-gold:   #a07820;
+  --accent-green:  #1a5c30;
+  --text-primary:  #0d1a0f;
+  --text-secondary:#1c3322;
+  --text-muted:    #6b5c3e;
+  --radius:        10px;
+  --radius-lg:     16px;
+}
+
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Source Sans 3', sans-serif;
+  color: var(--text-primary);
+}
+
+/* ── PAGE background image override ── */
+.wd-page {
+  padding: 60px 20px;
+  display: flex;
+  justify-content: center;
+  align-items: flex-start;
+  margin-top: 50px;
+}
+
+.wd-page::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  background: url("/background%20image.PNG") no-repeat center center / cover;
+  z-index: -1;
+}
+
+/* ── WRAPPER (overrides sd-container width/bg for weapon page) ── */
+.wd-wrapper {
+  background-color: var(--bg-dark);
+}
+
+/* ── HERO content (sd-hero provides bg/padding, this adds internals) ── */
+.wd-hero {
+  background: linear-gradient(135deg, #f0ebe0 0%, #ede5d5 100%);
+  border-bottom: 2px solid #8a7a5a;
+}
+
+.wd-hero::before {
+  content: '';
+  position: absolute;
+  bottom: 0; left: 0; right: 0;
+  height: 3px;
+  background: linear-gradient(90deg, transparent, #a07820, transparent);
+}
+
+.wd-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 860px;
+}
+
+.wd-title {
+  font-family: 'Playfair Display', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 900;
+  color: #0a150b;
+  line-height: 1.05;
+  margin-bottom: 16px;
+  letter-spacing: -0.5px;
+}
+
+.wd-description {
+  font-size: 15px;
+  color: #1c3322;
+  line-height: 1.7;
+  max-width: 680px;
+  margin-bottom: 28px;
+}
+
+/* ── QUICK STATS ── */
+.wd-quick-stats {
+  display: flex;
+  align-items: center;
+}
+
+.wd-stat {
+  display: flex;
+  flex-direction: column;
+  padding: 0 28px 0 0;
+}
+.wd-stat:first-child { padding-left: 0; }
+
+.wd-stat-value {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #6b4e0e;
+}
+
+.wd-stat-label {
+  font-size: 11px;
+  letter-spacing: 1px;
+  text-transform: uppercase;
+  color: #8a7a5a;
+  margin-top: 2px;
+  font-weight: 700;
+}
+
+.wd-stat-divider {
+  width: 1px;
+  height: 36px;
+  background: #8a7a5a;
+  margin-right: 28px;
+}
+
+/* ── CONTENT ── */
+.wd-content {
+  padding: 40px;
+  max-width: 960px;
+  margin: 0 auto;
+}
+
+.wd-section-group {
+  display: flex;
+  flex-direction: column;
+  gap: 36px;
+  animation: fadeUp 0.35s ease;
+}
+
+@keyframes fadeUp {
+  from { opacity: 0; transform: translateY(12px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+/* ── SECTION ── */
+.wd-section {
+  background: var(--bg-card);
+  border: 1px solid #8a7a5a;
+  border-radius: var(--radius-lg);
+  padding: 28px 32px;
+}
+
+.wd-section-title {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: #0a150b;
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 22px;
+  padding-bottom: 14px;
+  border-bottom: 1px solid #c4b49a;
+}
+
+.wd-section-icon { font-size: 1rem; }
+
+/* ── INFO GRID ── */
+.wd-info-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 14px;
+}
+
+.wd-info-card {
+  background: rgba(245,240,232,0.6);
+  border: 1px solid #c4b49a;
+  border-radius: var(--radius);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+  transition: background 0.2s;
+}
+.wd-info-card:hover { background: var(--bg-card-hover); }
+
+.wd-info-label {
+  font-size: 11px;
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  color: #8a7a5a;
+  font-weight: 700;
+}
+
+.wd-info-value {
+  font-size: 16px;
+  font-weight: 700;
+  color: #0a2e14;
+}
+
+/* ── TAGS ── */
+.wd-tags { display: flex; flex-wrap: wrap; gap: 10px; }
+
+.wd-tag {
+  background: rgba(26,92,48,0.10);
+  border: 1px solid rgba(26,92,48,0.35);
+  color: #0a2e14;
+  font-size: 13px;
+  font-weight: 700;
+  padding: 7px 18px;
+  border-radius: 30px;
+  letter-spacing: 0.5px;
+  transition: all 0.2s;
+}
+.wd-tag:hover { background: rgba(26,92,48,0.20); border-color: #0a2e14; }
+
+/* ── LIST ── */
+.wd-list {
+  list-style: none;
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.wd-list-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  font-size: 15px;
+  color: #1c3322;
+  line-height: 1.6;
+}
+
+.wd-list-dot {
+  width: 8px; height: 8px;
+  min-width: 8px;
+  border-radius: 50%;
+  background: #1a5c30;
+  margin-top: 7px;
+}
+.wd-list-dot.safety { background: #b85c00; }
+.wd-list-dot.legal  { background: #1a3a7a; }
+
+/* ── SPECS ── */
+.wd-specs-grid { display: flex; flex-direction: column; }
+
+.wd-spec-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 14px 0;
+  border-bottom: 1px solid #c4b49a;
+}
+.wd-spec-row:last-child { border-bottom: none; }
+
+.wd-spec-label {
+  font-size: 13px;
+  letter-spacing: 0.5px;
+  color: #8a7a5a;
+  text-transform: uppercase;
+  font-weight: 700;
+}
+
+.wd-spec-value {
+  font-size: 15px;
+  font-weight: 700;
+  color: #6b4e0e;
+}
+
+/* ── ADDITIONAL INFO TIPS ── */
+.wd-info-cards-list { display: flex; flex-direction: column; gap: 16px; }
+
+.wd-info-tip {
+  display: flex;
+  gap: 20px;
+  align-items: flex-start;
+  background: rgba(245,240,232,0.5);
+  border: 1px solid #c4b49a;
+  border-radius: var(--radius);
+  padding: 18px 22px;
+  transition: background 0.2s;
+}
+.wd-info-tip:hover { background: var(--bg-card-hover); }
+
+.wd-tip-number {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.6rem;
+  font-weight: 900;
+  color: #8a7a5a;
+  min-width: 36px;
+  line-height: 1;
+}
+
+.wd-info-tip p {
+  font-size: 15px;
+  color: #1c3322;
+  line-height: 1.65;
+  padding-top: 4px;
+}
+
+/* ── RESPONSIVE ── */
+@media (max-width: 640px) {
+  .wd-page    { padding: 20px 16px; }
+  .wd-content { padding: 24px 16px; }
+  .wd-section { padding: 20px 18px; }
+  .wd-info-grid { grid-template-columns: 1fr; }
+  .wd-quick-stats { flex-wrap: wrap; gap: 12px; }
+  .wd-stat-divider { display: none; }
+}

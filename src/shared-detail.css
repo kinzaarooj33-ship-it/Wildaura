@@ -1,0 +1,123 @@
+/* ============================================================
+   shared-detail.css  —  Wild Aura  |  All Detail Pages
+   Import this in: HuntingLaws, AnimalDetail (BlueSheep etc.),
+                   WeaponDetail, HuntingAreaDetail, ResortDetail
+   ============================================================ */
+
+/* ── COMMON GOLD TOKEN ──────────────────────────────────────── */
+:root {
+  --sd-gold:        #b6b14a;   /* header bg — same on every page  */
+  --sd-gold-dark:   #9a9638;
+  --sd-gold-light:  #cdc854;
+  --sd-text-dark:   #1a1a1a;
+  --sd-text-mid:    #4a4a4a;
+  --sd-radius:      16px;
+  --sd-shadow:      0 8px 32px rgba(0,0,0,0.22);
+
+  /* container sizing — identical on every page */
+  --sd-max-width:   960px;
+  --sd-top-margin:  90px;      /* clears the fixed navbar */
+}
+
+/* ── PAGE WRAPPER ────────────────────────────────────────────
+   Add class  "sd-page"  to the outermost div on every page.
+   ──────────────────────────────────────────────────────────── */
+.sd-page {
+  min-height: 100vh;
+  padding: 0 20px 60px;
+  position: relative;
+}
+
+/* ── CONTAINER ───────────────────────────────────────────────
+   Add class  "sd-container"  to the white card on every page.
+   ──────────────────────────────────────────────────────────── */
+.sd-container {
+  width: 100%;
+  max-width: var(--sd-max-width);
+  margin: var(--sd-top-margin) auto 0;
+  border-radius: var(--sd-radius);
+  overflow: hidden;
+  box-shadow: var(--sd-shadow);
+  background: #fff;
+}
+
+/* ── HERO / HEADER ───────────────────────────────────────────
+   Add class  "sd-hero"  to the coloured top section.
+   ──────────────────────────────────────────────────────────── */
+.sd-hero {
+  background: var(--sd-gold);
+  padding: 44px 40px 32px;
+  position: relative;
+  border-radius: var(--sd-radius) var(--sd-radius) 0 0;
+  border-bottom: 3px solid var(--sd-gold-dark);
+}
+
+/* ── BACK BUTTON ─────────────────────────────────────────────
+   Add class  "sd-back-btn"  to every back/← button.
+   ──────────────────────────────────────────────────────────── */
+.sd-back-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 16px;
+  background: rgba(255, 255, 255, 0.88);
+  color: var(--sd-text-dark);
+  border: 1.5px solid rgba(0, 0, 0, 0.22);
+  border-radius: 8px;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  cursor: pointer;
+  margin-bottom: 18px;
+  transition: background 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+.sd-back-btn:hover {
+  background: #fff;
+  border-color: rgba(0, 0, 0, 0.45);
+}
+
+/* ── TABS BAR ────────────────────────────────────────────────
+   Add class  "sd-tabs"  to the tab row,
+              "sd-tab-btn"  to each button,
+              "active"  to the selected one.
+   ──────────────────────────────────────────────────────────── */
+.sd-tabs {
+  display: flex;
+  background: #3d3a10;          /* dark olive — same everywhere */
+  border-bottom: 1px solid var(--sd-gold-dark);
+  padding: 0 32px;
+  overflow-x: auto;
+  gap: 4px;
+}
+
+.sd-tab-btn {
+  background: none;
+  border: none;
+  border-bottom: 3px solid transparent;
+  color: #b0a870;
+  font-size: 12px;
+  font-weight: 700;
+  letter-spacing: 0.9px;
+  text-transform: uppercase;
+  padding: 16px 20px;
+  cursor: pointer;
+  white-space: nowrap;
+  transition: color 0.2s, border-color 0.2s;
+  font-family: inherit;
+}
+
+.sd-tab-btn:hover  { color: #e0d8a0; }
+
+.sd-tab-btn.active {
+  color: var(--sd-gold-light);
+  border-bottom-color: var(--sd-gold-light);
+}
+
+/* ── RESPONSIVE ──────────────────────────────────────────────*/
+@media (max-width: 640px) {
+  :root { --sd-top-margin: 80px; }
+  .sd-hero   { padding: 32px 20px 24px; }
+  .sd-tabs   { padding: 0 12px; }
+}

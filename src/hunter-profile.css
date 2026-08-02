@@ -1,0 +1,362 @@
+* {
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+}
+
+/* FULL PAGE BACKGROUND ONLY */
+.page {
+  min-height: 100vh;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+}
+
+.page::before {
+  content: '';
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: url("/forest background.jpg") no-repeat center center / cover;
+  z-index: -1;
+}
+
+/* SINGLE MAIN CONTAINER */
+.hunter-container {
+  position: relative;   /* ✅ back button ab isi ke corner se position hoga, fixed margin hack nahi */
+  background: white;
+  width: 750px;
+  max-width: 100%;
+  padding: 25px 50px;
+  border-radius: 12px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* HEADING */
+.hunter-container h2 {
+  text-align: center;
+  margin-bottom: 10px;
+  margin-top: 10px;
+  font-size: 25px;
+}
+
+.hunter-container .subtitle {
+  text-align: center;
+  font-size: 15px;
+  color: #666;
+  margin-bottom: 15px;
+}
+
+/* GRID */
+.form-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0 20px;
+}
+
+.form-full {
+  grid-column: 1 / -1;
+}
+
+/* LABELS */
+.hunter-container label {
+  display: block;
+  font-weight: bold;
+  font-size: 12px;
+  margin-bottom: 6px;
+  color: #333;
+}
+
+/* ALL FIELDS — UNIFORM STYLING */
+.hunter-container input,
+.hunter-container textarea,
+.hunter-container select {
+  width: 100%;
+  padding: 10px 12px;
+  margin-bottom: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  font-family: Arial, sans-serif;
+  color: #333;
+  background-color: #fff;
+  outline: none;
+  transition: border 0.2s, box-shadow 0.2s;
+}
+
+/* FOCUS STATE — SAME FOR ALL */
+.hunter-container input:focus,
+.hunter-container textarea:focus,
+.hunter-container select:focus {
+  border-color: #b6b14a;
+  box-shadow: 0 0 0 3px rgba(182, 177, 74, 0.15);
+}
+
+/* SELECT — CUSTOM ARROW */
+.hunter-container select {
+  appearance: none;
+  -webkit-appearance: none;
+  background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 12 12'%3E%3Cpath fill='%23555' d='M6 8L1 3h10z'/%3E%3C/svg%3E");
+  background-repeat: no-repeat;
+  background-position: right 12px center;
+  cursor: pointer;
+}
+
+.hunter-container select option {
+  color: #333;
+  font-size: 14px;
+}
+
+/* FILE INPUT */
+.hunter-container input[type="file"] {
+  padding: 4px 12px;
+  font-size: 12px;
+}
+
+/* NUMBER INPUT — HIDE ARROWS */
+.hunter-container input[type="number"]::-webkit-inner-spin-button,
+.hunter-container input[type="number"]::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* TEXTAREA */
+.hunter-container textarea {
+  resize: none;
+}
+
+/* SUBMIT BUTTON */
+.hunter-container button {
+  width: 50%;
+  padding: 10px;
+  background: #b6b14a;
+  border: none;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+  color: black;
+  transition: 0.3s;
+}
+
+.hunter-container button:hover {
+  background: #a89d35;
+}
+
+/* SKIP BUTTON */
+.hunter-container .skip-btn {
+  width: 50%;
+  padding: 10px;
+  background: #b6b14a;
+  border: none;
+  border-radius: 40px;
+  font-size: 14px;
+  font-weight: bold;
+  cursor: pointer;
+  display: block;
+  margin: 10px auto 0;
+  color: black;
+  transition: 0.3s;
+}
+
+.hunter-container .skip-btn:hover {
+  background: #a89d35;
+}
+
+/* ERROR TEXT */
+.field-hint {
+  color: red;
+  font-size: 12px;
+}
+
+/* MOBILE RESPONSIVE */
+@media (max-width: 600px) {
+  .hunter-container {
+    padding: 20px;
+  }
+
+  .form-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* ─── BACK BUTTON ───────────────────────────────────────── */
+/* ✅ FIX: pehle margin-top:130px; margin-left:390px; se fixed-pixel
+   se position ki gayi thi, jo sirf ek specific zoom/width par sahi
+   thi. Ab sirf top/left se container ke corner par lock hai, jo
+   .hunter-container ke position:relative ki wajah se hamesha
+   consistent rahega — chahe zoom in/out karo. */
+.hunter-container .back-btn-n {
+  position: absolute;
+  top: 16px;
+  left: 16px;
+  background: white;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: #555;
+  font-size: 14px;
+  font-weight: 500;
+  padding: 6px 10px;
+  border-radius: 6px;
+  transition: background 0.2s, color 0.2s;
+  width: auto;
+  z-index: 2;
+}
+
+.hunter-container .back-btn-n:hover {
+  background: #f5f5f5;
+  border-color: #999;
+  color: #222;
+}
+
+/* ─── TOAST NOTIFICATION ─────────────────────────────────── */
+.toast {
+  position: fixed;
+  top: 24px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 9999;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 14px;
+  min-width: 320px;
+  max-width: 520px;
+  padding: 14px 20px;
+  border-radius: 12px;
+  font-size: 14px;
+  font-weight: 500;
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.18);
+  cursor: pointer;
+  animation: slideDown 0.3s ease;
+}
+
+@keyframes slideDown {
+  from { top: -60px; opacity: 0; }
+  to   { top: 24px;  opacity: 1; }
+}
+
+.toast.error {
+  background: #fff0f0;
+  border: 1.5px solid #f5c2c2;
+  color: #c0392b;
+}
+
+.toast.success {
+  background: #f0fdf4;
+  border: 1.5px solid #a5d6a7;
+  color: #1e7e34;
+}
+
+.toast-msg {
+  flex: 1;
+  line-height: 1.5;
+}
+
+.toast-close {
+  font-size: 16px;
+  opacity: 0.6;
+  flex-shrink: 0;
+}
+
+.toast-close:hover {
+  opacity: 1;
+}
+
+/* hint text neeche license field ke */
+.field-hint {
+  display: block;
+  font-size: 12px;
+  color: #888;
+  margin-top: 4px;
+}
+
+/* ─── FIELD ERROR ────────────────────────────────────────── */
+.field-error {
+  display: block;
+  color: red;
+  font-size: 12px;
+  margin-top: -8px;
+  margin-bottom: 8px;
+}
+
+/* ─── PROFILE VIEW (Yeh hunter-profile.css ke END mein tha) ─── */
+
+.profile-view-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 16px;
+  margin-bottom: 2rem;
+}
+
+.profile-view-item {
+  display: flex;
+  flex-direction: column;
+  gap: 4px;
+  padding: 12px 16px;
+  background: #f9fafb;
+  border: 1px solid #e5e7eb;
+  border-radius: 10px;
+}
+
+.view-label {
+  font-size: 12px;
+  color: #6b7280;
+  font-weight: 500;
+}
+
+.view-value {
+  font-size: 15px;
+  font-weight: 600;
+  color: #111827;
+}
+
+.edit-profile-btn {
+  background: #111827;
+  color: #fff;
+  border: none;
+  padding: 11px 28px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: opacity 0.15s;
+}
+.edit-profile-btn:hover { opacity: 0.85; }
+
+.form-action-row {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.cancel-edit-btn {
+  background: transparent;
+  color: #374151;
+  border: 1px solid #d1d5db;
+  padding: 11px 24px;
+  border-radius: 8px;
+  font-size: 15px;
+  font-weight: 500;
+  cursor: pointer;
+  transition: background 0.15s;
+}
+.cancel-edit-btn:hover { background: #f3f4f6; }
+
+@media (max-width: 520px) {
+  .profile-view-grid { grid-template-columns: 1fr; }
+}

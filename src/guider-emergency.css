@@ -1,0 +1,427 @@
+/* Guider Emergency Dashboard CSS */
+.guider-emergency-page {
+  min-height: 100vh;
+  background: #f5f0e8;
+  padding: 80px 24px 40px;
+}
+
+.emergency-header {
+  text-align: center;
+  margin-bottom: 32px;
+}
+
+.emergency-header h1 {
+  font-size: 28px;
+  color: #1a3c2e;
+  margin-bottom: 8px;
+}
+
+.emergency-header h1 i {
+  color: #dc2626;
+  margin-right: 10px;
+}
+
+.emergency-header p {
+  color: #6b7280;
+  font-size: 14px;
+}
+
+/* No Emergencies */
+.no-emergencies {
+  text-align: center;
+  padding: 60px 20px;
+  background: white;
+  border-radius: 20px;
+  max-width: 500px;
+  margin: 0 auto;
+}
+
+.no-emergencies i {
+  font-size: 64px;
+  color: #22c55e;
+  margin-bottom: 20px;
+}
+
+.no-emergencies h3 {
+  font-size: 22px;
+  color: #1f2937;
+  margin-bottom: 8px;
+}
+
+.no-emergencies p {
+  color: #6b7280;
+}
+
+/* Emergencies List */
+.emergencies-list {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+/* Emergency Card */
+.emergency-card {
+  background: white;
+  border-radius: 20px;
+  overflow: hidden;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+  transition: transform 0.2s, box-shadow 0.2s;
+  border-left: 5px solid #dc2626;
+}
+
+.emergency-card:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+}
+
+.emergency-card-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px 20px;
+  background: #fef2f2;
+  border-bottom: 1px solid #fee2e2;
+}
+
+.emergency-icon i {
+  font-size: 28px;
+  color: #dc2626;
+  animation: pulse 1s infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.05); }
+}
+
+.emergency-status {
+  display: flex;
+  gap: 10px;
+}
+
+.status-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  font-weight: 600;
+}
+
+.status-badge.urgent {
+  background: #dc2626;
+  color: white;
+}
+
+.distance-badge {
+  padding: 4px 12px;
+  border-radius: 20px;
+  font-size: 12px;
+  background: #e5e7eb;
+  color: #374151;
+}
+
+.emergency-card-body {
+  padding: 20px;
+}
+
+.emergency-card-body h3 {
+  font-size: 18px;
+  color: #1f2937;
+  margin-bottom: 15px;
+}
+
+.emergency-details {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 12px;
+  margin-bottom: 16px;
+}
+
+.detail-item {
+  display: flex;
+  align-items: center;
+  gap: 8px;
+  font-size: 13px;
+  color: #4b5563;
+}
+
+.detail-item i {
+  width: 18px;
+  color: #c8873a;
+}
+
+.location-link {
+  color: #c8873a;
+  cursor: pointer;
+  text-decoration: underline;
+}
+
+.location-link:hover {
+  color: #1a3c2e;
+}
+
+.emergency-message {
+  background: #f9f7f3;
+  padding: 12px;
+  border-radius: 12px;
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+
+.emergency-message i {
+  color: #dc2626;
+  font-size: 16px;
+}
+
+.emergency-message p {
+  font-size: 13px;
+  color: #374151;
+  margin: 0;
+}
+
+/* Card Footer Buttons */
+.emergency-card-footer {
+  display: flex;
+  gap: 12px;
+  padding: 16px 20px;
+  background: #f9fafb;
+  border-top: 1px solid #e5e7eb;
+}
+
+.accept-btn, .reject-btn, .call-btn {
+  flex: 1;
+  padding: 10px;
+  border: none;
+  border-radius: 10px;
+  font-size: 14px;
+  font-weight: 600;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  transition: all 0.2s;
+}
+
+.accept-btn {
+  background: #22c55e;
+  color: white;
+}
+
+.accept-btn:hover {
+  background: #16a34a;
+  transform: translateY(-1px);
+}
+
+.reject-btn {
+  background: #ef4444;
+  color: white;
+}
+
+.reject-btn:hover {
+  background: #dc2626;
+  transform: translateY(-1px);
+}
+
+.call-btn {
+  background: #c8873a;
+  color: white;
+}
+
+.call-btn:hover:not(:disabled) {
+  background: #b5722e;
+  transform: translateY(-1px);
+}
+
+.call-btn:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
+/* Location Modal */
+.location-modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 10000;
+}
+
+.location-modal {
+  background: white;
+  border-radius: 20px;
+  width: 90%;
+  max-width: 450px;
+  animation: modalSlideIn 0.3s ease;
+}
+
+@keyframes modalSlideIn {
+  from {
+    transform: translateY(-30px);
+    opacity: 0;
+  }
+  to {
+    transform: translateY(0);
+    opacity: 1;
+  }
+}
+
+.location-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 20px;
+  border-bottom: 1px solid #e5e7eb;
+  background: #1a3c2e;
+  color: white;
+  border-radius: 20px 20px 0 0;
+}
+
+.location-modal-header h3 {
+  margin: 0;
+  font-size: 18px;
+}
+
+.close-modal {
+  background: rgba(255,255,255,0.2);
+  border: none;
+  color: white;
+  width: 32px;
+  height: 32px;
+  border-radius: 8px;
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.location-modal-body {
+  padding: 24px;
+}
+
+.location-coordinates {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 15px;
+  margin-bottom: 20px;
+}
+
+.coord-box {
+  background: #f9f7f3;
+  padding: 12px;
+  border-radius: 12px;
+  text-align: center;
+}
+
+.coord-box label {
+  display: block;
+  font-size: 11px;
+  color: #6b7280;
+  margin-bottom: 5px;
+}
+
+.coord-box p {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1f2937;
+  margin: 0;
+}
+
+.location-map-link {
+  margin-bottom: 20px;
+}
+
+.map-link {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  background: #c8873a;
+  color: white;
+  padding: 12px;
+  border-radius: 12px;
+  text-decoration: none;
+  font-weight: 600;
+  transition: background 0.2s;
+}
+
+.map-link:hover {
+  background: #b5722e;
+}
+
+.location-actions {
+  display: flex;
+  gap: 12px;
+}
+
+.navigate-btn, .share-btn {
+  flex: 1;
+  padding: 10px;
+  border: 1.5px solid #e5e7eb;
+  background: white;
+  border-radius: 10px;
+  cursor: pointer;
+  font-size: 13px;
+  font-weight: 500;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 6px;
+  transition: all 0.2s;
+}
+
+.navigate-btn:hover, .share-btn:hover {
+  background: #f3f4f6;
+  border-color: #c8873a;
+}
+
+/* Loading State */
+.emergency-loading {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 16px;
+}
+
+.spinner {
+  width: 50px;
+  height: 50px;
+  border: 4px solid #e5e7eb;
+  border-top-color: #1a3c2e;
+  border-radius: 50%;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  to { transform: rotate(360deg); }
+}
+
+/* Responsive */
+@media (max-width: 640px) {
+  .guider-emergency-page {
+    padding: 70px 16px 30px;
+  }
+
+  .emergency-card-footer {
+    flex-direction: column;
+  }
+
+  .emergency-details {
+    grid-template-columns: 1fr;
+  }
+
+  .location-modal {
+    width: 95%;
+  }
+
+  .location-actions {
+    flex-direction: column;
+  }
+}
